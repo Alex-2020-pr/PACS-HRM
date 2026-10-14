@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta PACS SPData - Hospital Regional de Monte Negro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056a6;
+            --secondary-color: #00a8a8;
+            --accent-color: #ff6b00;
+            --economy-color: #28a745;
+            --light-color: #f8f9fa;
+            --dark-color: #333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --economy-gradient: linear-gradient(135deg, #28a745, #20c997);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--primary-color), #0077cc);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .logo {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        .logo img {
+            max-width: 180px;
+            height: auto;
+        }
+        
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header-text h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+        
+        /* Economy Banner */
+        .economy-banner {
+            background: var(--economy-gradient);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .economy-banner:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .economy-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .economy-banner h3 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .economy-banner .value {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Main Content */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title.economy:after {
+            background-color: var(--economy-color);
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .card.economy-card h3 {
+            border-bottom-color: var(--economy-color);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .card.economy-card .card-icon {
+            color: var(--economy-color);
+        }
+        
+        /* Comparativo */
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .comparison-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .comparison-item.current {
+            border-top: 5px solid #dc3545;
+        }
+        
+        .comparison-item.proposed {
+            border-top: 5px solid var(--economy-color);
+        }
+        
+        .comparison-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .price.current {
+            color: #dc3545;
+        }
+        
+        .price.proposed {
+            color: var(--economy-color);
+        }
+        
+        .period {
+            font-size: 1rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        /* Economy Calculator */
+        .economy-calculator {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin: 40px auto;
+            max-width: 900px;
+            border: 2px solid var(--economy-color);
+        }
+        
+        .economy-calculator h3 {
+            color: var(--economy-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .economy-calc-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .economy-calc-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding-top: 25px;
+            color: var(--economy-color);
+        }
+        
+        .economy-calc-item.total .value {
+            font-size: 2rem;
+        }
+        
+        /* Integration Highlight */
+        .integration-highlight {
+            background-color: #e8f4ff;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 50px 0;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .integration-highlight h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .integration-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .integration-benefit {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+        
+        /* Equipment Section */
+        .equipment-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin: 40px auto;
+            max-width: 900px;
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .equipment-section h3 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .equipment-item {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .equipment-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .equipment-item i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .equipment-item .qty {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+        }
+        
+        .equipment-item .label {
+            font-size: 0.95rem;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        .equipment-total {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #ddd;
+        }
+        
+        .equipment-total .total-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+        
+        .equipment-total .total-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        /* Cloud Option */
+        .cloud-option {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 2px dashed var(--secondary-color);
+            text-align: center;
+        }
+        
+        .cloud-option h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Savings Timeline */
+        .savings-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .savings-period {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .savings-period:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--economy-gradient);
+        }
+        
+        .savings-period h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .savings-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--economy-color);
+            margin: 15px 0;
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(to right, var(--primary-color), #0077cc);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: #e05a00;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .cta-button.secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            
+            .header-text h2 {
+                font-size: 1.2rem;
+            }
+            
+            .economy-banner h3 {
+                font-size: 1.8rem;
+            }
+            
+            .economy-banner .value {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .economy-calculator {
+                padding: 25px;
+            }
+            
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .cta-button.secondary {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .cards, .comparison, .savings-timeline, .integration-benefits, .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+            }
+            
+            .economy-calc-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <div class="logo">
+                    <!-- Logotipo fictício SPData -->
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">SPData</div>
+                    <div style="font-size: 1rem; color: var(--secondary-color);">PACS e Laudos</div>
+                </div>
+                <div class="header-text">
+                    <h1>Proposta Comercial</h1>
+                    <h2>Hospital Regional de Monte Negro</h2>
+                    <p>Migração do PACS Animati para PACS SPData</p>
+                </div>
+                <div class="logo">
+                    <!-- Logotipo fictício Hospital -->
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">HRMN</div>
+                    <div style="font-size: 1rem; color: var(--secondary-color);">Hospital Regional Monte Negro</div>
+                </div>
+            </div>
+            
+            <div class="economy-banner">
+                <div class="economy-banner-content">
+                    <h3>ECONOMIA GARANTIDA COM NOSSA SOLUÇÃO</h3>
+                    <div class="value">R$ 3.450,00</div>
+                    <p>ECONOMIA MENSAL APÓS QUITAÇÃO DA TAXA (A PARTIR DE FEV/2028)</p>
+                    <p><i class="fas fa-arrow-down"></i> Redução de 53,5% nos custos com PACS</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <h2 class="section-title economy">Economia Financeira Detalhada</h2>
+            
+            <div class="economy-calculator">
+                <h3><i class="fas fa-calculator"></i> Calculadora de Economia</h3>
+                
+                <div class="economy-calc-item">
+                    <span>Custo mensal atual (PACS Animati):</span>
+                    <span class="value" style="color: #dc3545; font-weight: 700;">R$ 6.450,00</span>
+                </div>
+                
+                <div class="economy-calc-item">
+                    <span>Mensalidade SPData (após quitação da taxa):</span>
+                    <span class="value" style="color: var(--economy-color); font-weight: 700;">R$ 3.000,00</span>
+                </div>
+                
+                <div class="economy-calc-item">
+                    <span>Taxa de implantação (24x):</span>
+                    <span class="value" style="color: var(--secondary-color); font-weight: 700;">R$ 1.355,00/mês</span>
+                </div>
+                
+                <div class="economy-calc-item">
+                    <span>Mensalidade durante parcelamento (fev/2026 a jan/2028):</span>
+                    <span class="value" style="color: var(--primary-color); font-weight: 700;">R$ 4.355,00</span>
+                </div>
+                
+                <div class="economy-calc-item">
+                    <span>Economia mensal durante parcelamento:</span>
+                    <span class="value" style="color: var(--economy-color); font-weight: 700;">R$ 2.095,00</span>
+                </div>
+                
+                <div class="economy-calc-item">
+                    <span>Economia mensal após quitação da taxa:</span>
+                    <span class="value" style="color: var(--economy-color); font-weight: 700;">R$ 3.450,00</span>
+                </div>
+                
+                <div class="economy-calc-item">
+                    <span>Período de implantação sem custo (nov/2025 a jan/2026):</span>
+                    <span class="value" style="color: var(--secondary-color); font-weight: 700;">R$ 19.350,00*</span>
+                </div>
+                
+                <div class="economy-calc-item total">
+                    <span>ECONOMIA TOTAL EM 24 MESES:</span>
+                    <span class="value">R$ 50.280,00</span>
+                </div>
+                
+                <div class="economy-calc-item total">
+                    <span>ECONOMIA TOTAL EM 48 MESES:</span>
+                    <span class="value">R$ 133.080,00</span>
+                </div>
+                
+                <p style="margin-top: 20px; font-size: 0.9rem; text-align: center; color: #666;">
+                    * Valor que seria gasto com o PACS Animati no período de implantação
+                </p>
+            </div>
+            
+            <div class="savings-timeline">
+                <div class="savings-period">
+                    <h4>Primeiro Ano</h4>
+                    <p>Fev/2026 - Jan/2027</p>
+                    <div class="savings-amount">R$ 25.140,00</div>
+                    <p>Economia acumulada</p>
+                </div>
+                
+                <div class="savings-period">
+                    <h4>Em 24 Meses</h4>
+                    <p>Fev/2026 - Jan/2028</p>
+                    <div class="savings-amount">R$ 50.280,00</div>
+                    <p>Economia acumulada</p>
+                </div>
+                
+                <div class="savings-period">
+                    <h4>Em 48 Meses</h4>
+                    <p>Fev/2026 - Jan/2030</p>
+                    <div class="savings-amount">R$ 133.080,00</div>
+                    <p>Economia acumulada</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="container">
+            <h2 class="section-title">Equipamentos Cobertos pela Solução</h2>
+            
+            <div class="equipment-section">
+                <h3><i class="fas fa-hospital"></i> 9 Equipamentos Integrados ao PACS SPData</h3>
+                
+                <div class="equipment-grid">
+                    <div class="equipment-item">
+                        <i class="fas fa-x-ray"></i>
+                        <div class="qty">2</div>
+                        <div class="label">Raio-X</div>
+                    </div>
+                    
+                    <div class="equipment-item">
+                        <i class="fas fa-brain"></i>
+                        <div class="qty">1</div>
+                        <div class="label">Tomógrafo</div>
+                    </div>
+                    
+                    <div class="equipment-item">
+                        <i class="fas fa-wave-square"></i>
+                        <div class="qty">4</div>
+                        <div class="label">Ultrassom</div>
+                    </div>
+                    
+                    <div class="equipment-item">
+                        <i class="fas fa-eye"></i>
+                        <div class="qty">1</div>
+                        <div class="label">Endoscopia</div>
+                    </div>
+                    
+                    <div class="equipment-item">
+                        <i class="fas fa-female"></i>
+                        <div class="qty">1</div>
+                        <div class="label">Mamografia</div>
+                    </div>
+                </div>
+                
+                <div class="equipment-total">
+                    <div class="total-number">9</div>
+                    <div class="total-label">Equipamentos de imagem integrados</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="container">
+            <h2 class="section-title">Benefícios Além da Economia</h2>
+            
+            <div class="cards">
+                <div class="card economy-card">
+                    <div class="card-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Servidor Local</h3>
+                    <p>Esta proposta considera <strong>implantação em servidor local</strong> com todas as vantagens de performance e controle interno.</p>
+                    <p style="margin-top: 15px; padding: 10px; background-color: #f8f9fa; border-radius: 5px;">
+                        <strong>Opção disponível:</strong> Se preferir solução em nuvem com backup gerenciado, podemos elaborar proposta específica.
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Integração Completa com PEP</h3>
+                    <p>Conexão total com o Prontuário Eletrônico do Paciente, permitindo:</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Acesso a exames de imagem diretamente do PEP</li>
+                        <li>Laudos integrados ao histórico do paciente</li>
+                        <li>Workflow unificado entre departamentos</li>
+                        <li>Redução de retrabalho e ganho de eficiência</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Tecnologia Superior</h3>
+                    <p>Substituição do sistema legado por tecnologia atual com:</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Visualização mais rápida de imagens</li>
+                        <li>Ferramentas avançadas de análise</li>
+                        <li>Interface moderna e intuitiva</li>
+                        <li>Suporte técnico especializado</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="integration-highlight">
+                <h3><i class="fas fa-handshake"></i> Vantagens da Integração SPData + PEP</h3>
+                <p>A integração completa entre nosso PACS e seu Prontuário Eletrônico proporciona benefícios operacionais significativos além da economia financeira:</p>
+                
+                <div class="integration-benefits">
+                    <div class="integration-benefit">
+                        <h4><i class="fas fa-clock"></i> Ganho de Tempo</h4>
+                        <p>Médicos acessam exames e laudos diretamente do PEP, sem necessidade de abrir sistemas separados.</p>
+                    </div>
+                    
+                    <div class="integration-benefit">
+                        <h4><i class="fas fa-file-medical"></i> Prontuário Completo</h4>
+                        <p>Todos os exames de imagem ficam disponíveis no histórico único do paciente.</p>
+                    </div>
+                    
+                    <div class="integration-benefit">
+                        <h4><i class="fas fa-sync-alt"></i> Workflow Otimizado</h4>
+                        <p>Redução de etapas manuais e integração automática entre setores.</p>
+                    </div>
+                    
+                    <div class="integration-benefit">
+                        <h4><i class="fas fa-shield-alt"></i> Segurança</h4>
+                        <p>Controle de acesso unificado e auditoria completa de visualizações.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cloud-option">
+                <h3><i class="fas fa-cloud"></i> Interessado em Solução em Nuvem?</h3>
+                <p>Além da opção de servidor local apresentada, oferecemos também solução completa em nuvem com backup gerenciado, alta disponibilidade e acessibilidade remota.</p>
+                <p style="margin-top: 15px; font-weight: 700;">Podemos elaborar proposta específica conforme sua necessidade!</p>
+            </div>
+        </section>
+        
+        <section class="container">
+            <h2 class="section-title">Cronograma e Implantação</h2>
+            
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Novembro/2025 a Janeiro/2026</h3>
+                    <p><strong>PERÍODO DE IMPLANTAÇÃO SEM CUSTO</strong></p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Instalação e configuração do sistema</li>
+                        <li>Migração de exames históricos</li>
+                        <li>Integração com PEP e outros sistemas</li>
+                        <li>Treinamento completo da equipe</li>
+                        <li><strong>Nenhuma cobrança neste período</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>Fevereiro/2026</h3>
+                    <p><strong>INÍCIO OPERACIONAL E FATURAMENTO</strong></p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Sistema em produção plena</li>
+                        <li>Início da cobrança: R$ 4.355,00/mês (mensalidade + parcela da taxa)</li>
+                        <li>Economia imediata de R$ 2.095,00/mês</li>
+                        <li>Suporte técnico 24/7 ativado</li>
+                        <li>Após quitação da taxa (fev/2028), mensalidade cai para R$ 3.000,00</li>
+                    </ul>
+                </div>
+                
+                <div class="card economy-card">
+                    <div class="card-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Economia desde o Dia 1</h3>
+                    <p><strong>BENEFÍCIO FINANCEIRO IMEDIATO</strong></p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li><strong>3 meses sem custo:</strong> Economia de R$ 19.350,00 durante implantação</li>
+                        <li><strong>Durante parcelamento:</strong> Redução de 32,5% na mensalidade</li>
+                        <li><strong>Após quitação:</strong> Redução de 53,5% na mensalidade</li>
+                        <li><strong>Em 48 meses:</strong> Economia total de R$ 133.080,00</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section class="container">
+            <div class="cta-section">
+                <h2>Transforme sua Economia em Mais Recursos para a Saúde</h2>
+                <p>Com a economia gerada pelo PACS SPData, seu hospital poderá investir em outras áreas prioritárias.</p>
+                
+                <div style="margin: 30px 0; font-size: 1.2rem;">
+                    <p><i class="fas fa-check-circle" style="color: #20c997; margin-right: 10px;"></i> 
+                    <strong>Economia de R$ 133.080,00 em 48 meses</strong> pode equipar novas salas ou capacitar profissionais</p>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#contact" class="cta-button">
+                        <i class="fas fa-file-signature"></i> Aceitar Proposta
+                    </a>
+                    <a href="#contact" class="cta-button secondary">
+                        <i class="fas fa-cloud"></i> Solicitar Proposta em Nuvem
+                    </a>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 0.9rem;">
+                    <i class="fas fa-calendar"></i> Validade desta proposta: 26/12/2025 | 
+                    <i class="fas fa-clock"></i> Implantação prevista: Novembro/2025
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <h3>SPData - PACS e Laudos</h3>
+            <p>Soluções em tecnologia médica para diagnósticos por imagem</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(45) 99911-6536</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>alexandre.pr@spdata.com.br</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>www.spdata.com.br</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background-color: rgba(255,255,255,0.1); border-radius: 5px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <p><strong>Resumo da Oportunidade:</strong> Substituição do PACS Animati (R$ 6.450,00/mês) pelo PACS SPData (R$ 3.000,00/mês) com integração total ao PEP para 9 equipamentos (2 RX, 1 Tomo, 4 US, 1 Endoscopia, 1 Mamo), resultando em economia mensal de R$ 3.450,00 (53,5%) após quitação da taxa de implantação de R$ 32.520,00 parcelada em 24x de R$ 1.355,00. Durante o parcelamento, a economia é de R$ 2.095,00/mês (32,5%). Sem custos durante a implantação (nov/2025 a jan/2026).</p>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
+                Proposta elaborada exclusivamente para o Hospital Regional de Monte Negro - Dezembro/2025
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Adicionando interatividade
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efeito de contagem para os valores de economia
+            function animateValue(element, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.innerHTML = "R$ " + value.toLocaleString('pt-BR') + ",00";
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+            
+            // Observador para animar elementos quando entram na viewport
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        
+                        // Animar valores de economia
+                        if (entry.target.classList.contains('savings-amount')) {
+                            const valueText = entry.target.textContent;
+                            const value = parseInt(valueText.replace(/[^\d]/g, ''));
+                            if (!isNaN(value)) {
+                                entry.target.textContent = '';
+                                setTimeout(() => {
+                                    animateValue(entry.target, 0, value, 1500);
+                                }, 300);
+                            }
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Aplicar animação aos elementos
+            const cards = document.querySelectorAll('.card, .comparison-item, .savings-period, .integration-benefit, .equipment-item');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Animar valores da calculadora
+            const calcValues = document.querySelectorAll('.economy-calc-item .value');
+            calcValues.forEach(value => {
+                value.style.opacity = '0';
+                value.style.transform = 'translateX(10px)';
+                value.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                const valueObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.style.opacity = '1';
+                                entry.target.style.transform = 'translateX(0)';
+                            }, 300);
+                        }
+                    });
+                }, observerOptions);
+                
+                valueObserver.observe(value);
+            });
+            
+            // Banner de economia com efeito
+            const economyBanner = document.querySelector('.economy-banner .value');
+            if (economyBanner) {
+                const bannerValue = 3450;
+                economyBanner.textContent = '';
+                setTimeout(() => {
+                    animateValue(economyBanner, 0, bannerValue, 2000);
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
