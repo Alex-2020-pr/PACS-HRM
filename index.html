@@ -212,58 +212,6 @@
             color: var(--economy-color);
         }
         
-        /* Comparativo */
-        .comparison {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .comparison-item {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-        
-        .comparison-item.current {
-            border-top: 5px solid #dc3545;
-        }
-        
-        .comparison-item.proposed {
-            border-top: 5px solid var(--economy-color);
-        }
-        
-        .comparison-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .price.current {
-            color: #dc3545;
-        }
-        
-        .price.proposed {
-            color: var(--economy-color);
-        }
-        
-        .period {
-            font-size: 1rem;
-            color: #666;
-            text-align: center;
-        }
-        
         /* Economy Calculator */
         .economy-calculator {
             background-color: white;
@@ -582,7 +530,7 @@
         }
         
         @media (max-width: 480px) {
-            .cards, .comparison, .savings-timeline, .integration-benefits, .equipment-grid {
+            .cards, .savings-timeline, .integration-benefits, .equipment-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -626,7 +574,7 @@
                 <div class="economy-banner-content">
                     <h3>ECONOMIA GARANTIDA COM NOSSA SOLUÇÃO</h3>
                     <div class="value">R$ 3.450,00</div>
-                    <p>ECONOMIA MENSAL APÓS QUITAÇÃO DA TAXA (A PARTIR DE FEV/2028)</p>
+                    <p>ECONOMIA MENSAL APÓS QUITAÇÃO DA TAXA</p>
                     <p><i class="fas fa-arrow-down"></i> Redução de 53,5% nos custos com PACS</p>
                     <div class="year-tag">
                         <i class="fas fa-tag"></i> Valores de 2026
@@ -662,7 +610,7 @@
                 </div>
                 
                 <div class="economy-calc-item">
-                    <span>Mensalidade durante parcelamento (fev/2026 a jan/2028):</span>
+                    <span>Mensalidade durante parcelamento:</span>
                     <span class="value" style="color: var(--primary-color); font-weight: 700;">R$ 4.355,00</span>
                 </div>
                 
@@ -676,11 +624,6 @@
                     <span class="value" style="color: var(--economy-color); font-weight: 700;">R$ 3.450,00</span>
                 </div>
                 
-                <div class="economy-calc-item">
-                    <span>Período de implantação sem custo (nov/2025 a jan/2026):</span>
-                    <span class="value" style="color: var(--secondary-color); font-weight: 700;">R$ 19.350,00*</span>
-                </div>
-                
                 <div class="economy-calc-item total">
                     <span>ECONOMIA TOTAL EM 24 MESES:</span>
                     <span class="value">R$ 50.280,00</span>
@@ -691,10 +634,7 @@
                     <span class="value">R$ 133.080,00</span>
                 </div>
                 
-                <p style="margin-top: 20px; font-size: 0.9rem; text-align: center; color: #666;">
-                    * Valor que seria gasto com o PACS Animati no período de implantação
-                </p>
-                <p style="margin-top: 10px; font-size: 0.85rem; text-align: center; color: #999; font-style: italic;">
+                <p style="margin-top: 20px; font-size: 0.85rem; text-align: center; color: #999; font-style: italic;">
                     Valores de referência para 2026, sujeitos a reajuste anual pelo IGPM.
                 </p>
             </div>
@@ -702,21 +642,18 @@
             <div class="savings-timeline">
                 <div class="savings-period">
                     <h4>Primeiro Ano</h4>
-                    <p>Fev/2026 - Jan/2027</p>
                     <div class="savings-amount">R$ 25.140,00</div>
                     <p>Economia acumulada</p>
                 </div>
                 
                 <div class="savings-period">
                     <h4>Em 24 Meses</h4>
-                    <p>Fev/2026 - Jan/2028</p>
                     <div class="savings-amount">R$ 50.280,00</div>
                     <p>Economia acumulada</p>
                 </div>
                 
                 <div class="savings-period">
                     <h4>Em 48 Meses</h4>
-                    <p>Fev/2026 - Jan/2030</p>
                     <div class="savings-amount">R$ 133.080,00</div>
                     <p>Economia acumulada</p>
                 </div>
@@ -847,36 +784,33 @@
         </section>
         
         <section class="container">
-            <h2 class="section-title">Cronograma e Implantação</h2>
+            <h2 class="section-title">Condições de Pagamento</h2>
             
             <div class="cards">
                 <div class="card">
                     <div class="card-icon">
-                        <i class="fas fa-calendar-alt"></i>
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
-                    <h3>Novembro/2025 a Janeiro/2026</h3>
-                    <p><strong>PERÍODO DE IMPLANTAÇÃO SEM CUSTO</strong></p>
+                    <h3>Taxa de Implantação</h3>
+                    <p><strong>R$ 32.520,00</strong></p>
                     <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li>Instalação e configuração do sistema</li>
-                        <li>Migração de exames históricos</li>
-                        <li>Integração com PEP e outros sistemas</li>
-                        <li>Treinamento completo da equipe</li>
-                        <li><strong>Nenhuma cobrança neste período</strong></li>
+                        <li>Parcelada em <strong>24x de R$ 1.355,00</strong></li>
+                        <li>Sem entrada</li>
+                        <li>Parcelas inclusas na mensalidade</li>
                     </ul>
                 </div>
                 
                 <div class="card">
                     <div class="card-icon">
-                        <i class="fas fa-play-circle"></i>
+                        <i class="fas fa-calendar-check"></i>
                     </div>
-                    <h3>Fevereiro/2026</h3>
-                    <p><strong>INÍCIO OPERACIONAL E FATURAMENTO</strong></p>
+                    <h3>Mensalidade SPData</h3>
+                    <p><strong>R$ 3.000,00/mês</strong></p>
                     <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li>Sistema em produção plena</li>
-                        <li>Início da cobrança: R$ 4.355,00/mês (mensalidade + parcela da taxa)</li>
-                        <li>Economia imediata de R$ 2.095,00/mês</li>
-                        <li>Suporte técnico 24/7 ativado</li>
-                        <li>Após quitação da taxa (fev/2028), mensalidade cai para R$ 3.000,00</li>
+                        <li>Após quitação da taxa de implantação</li>
+                        <li>Reajuste anual pelo IGPM</li>
+                        <li>Suporte técnico 24/7 incluso</li>
+                        <li>Atualizações do sistema inclusas</li>
                     </ul>
                 </div>
                 
@@ -884,14 +818,38 @@
                     <div class="card-icon">
                         <i class="fas fa-piggy-bank"></i>
                     </div>
-                    <h3>Economia desde o Dia 1</h3>
-                    <p><strong>BENEFÍCIO FINANCEIRO IMEDIATO</strong></p>
+                    <h3>Durante o Parcelamento</h3>
+                    <p><strong>R$ 4.355,00/mês</strong></p>
                     <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li><strong>3 meses sem custo:</strong> Economia de R$ 19.350,00 durante implantação</li>
-                        <li><strong>Durante parcelamento:</strong> Redução de 32,5% na mensalidade</li>
-                        <li><strong>Após quitação:</strong> Redução de 53,5% na mensalidade</li>
-                        <li><strong>Em 48 meses:</strong> Economia total de R$ 133.080,00</li>
+                        <li>Mensalidade (R$ 3.000,00) + parcela da taxa (R$ 1.355,00)</li>
+                        <li>Economia imediata de <strong>R$ 2.095,00/mês</strong> em relação ao Animati</li>
+                        <li>Redução de 32,5% no custo mensal</li>
                     </ul>
+                </div>
+            </div>
+            
+            <div class="integration-highlight" style="border-left-color: var(--economy-color);">
+                <h3 style="color: var(--economy-color);"><i class="fas fa-info-circle"></i> Resumo das Condições</h3>
+                <div class="integration-benefits">
+                    <div class="integration-benefit">
+                        <h4><i class="fas fa-file-signature"></i> Taxa de Implantação</h4>
+                        <p><strong>R$ 32.520,00</strong> em 24x de R$ 1.355,00</p>
+                    </div>
+                    
+                    <div class="integration-benefit">
+                        <h4><i class="fas fa-money-bill-wave"></i> Mensalidade</h4>
+                        <p><strong>R$ 3.000,00/mês</strong> após quitação da taxa</p>
+                    </div>
+                    
+                    <div class="integration-benefit">
+                        <h4><i class="fas fa-calculator"></i> Total Mensal (parcelamento)</h4>
+                        <p><strong>R$ 4.355,00/mês</strong> durante 24 meses</p>
+                    </div>
+                    
+                    <div class="integration-benefit">
+                        <h4><i class="fas fa-chart-line"></i> Economia</h4>
+                        <p><strong>R$ 3.450,00/mês</strong> após quitação da taxa</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -916,8 +874,7 @@
                 </div>
                 
                 <p style="margin-top: 30px; font-size: 0.9rem;">
-                    <i class="fas fa-calendar"></i> Validade desta proposta: 26/12/2025 | 
-                    <i class="fas fa-clock"></i> Implantação prevista: Novembro/2025
+                    <i class="fas fa-calendar"></i> Validade desta proposta: 26/12/2025
                 </p>
                 <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.9;">
                     <i class="fas fa-tag"></i> Valores de referência para 2026
@@ -947,7 +904,7 @@
             </div>
             
             <div style="margin-top: 30px; padding: 20px; background-color: rgba(255,255,255,0.1); border-radius: 5px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <p><strong>Resumo da Oportunidade:</strong> Substituição do PACS Animati (R$ 6.450,00/mês) pelo PACS SPData (R$ 3.000,00/mês) com integração total ao PEP para 9 equipamentos (2 RX, 1 Tomo, 4 US, 1 Endoscopia, 1 Mamo), resultando em economia mensal de R$ 3.450,00 (53,5%) após quitação da taxa de implantação de R$ 32.520,00 parcelada em 24x de R$ 1.355,00. Durante o parcelamento, a economia é de R$ 2.095,00/mês (32,5%). Sem custos durante a implantação (nov/2025 a jan/2026). Valores de referência para 2026.</p>
+                <p><strong>Resumo da Oportunidade:</strong> Substituição do PACS Animati (R$ 6.450,00/mês) pelo PACS SPData (R$ 3.000,00/mês) com integração total ao PEP para 9 equipamentos (2 RX, 1 Tomo, 4 US, 1 Endoscopia, 1 Mamo), resultando em economia mensal de R$ 3.450,00 (53,5%) após quitação da taxa de implantação de R$ 32.520,00 parcelada em 24x de R$ 1.355,00. Durante o parcelamento, a economia é de R$ 2.095,00/mês (32,5%). Valores de referência para 2026.</p>
             </div>
             
             <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
@@ -1005,7 +962,7 @@
             }, observerOptions);
             
             // Aplicar animação aos elementos
-            const cards = document.querySelectorAll('.card, .comparison-item, .savings-period, .integration-benefit, .equipment-item');
+            const cards = document.querySelectorAll('.card, .savings-period, .integration-benefit, .equipment-item');
             cards.forEach(card => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
