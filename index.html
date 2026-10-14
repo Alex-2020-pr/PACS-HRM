@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta PACS SPData - Hospital Regional de Monte Negro</title>
+    <title>Proposta PACS SPData 2026 - Hospital Regional de Monte Negro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -77,6 +77,18 @@
             margin-bottom: 5px;
         }
         
+        .header-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
         /* Economy Banner */
         .economy-banner {
             background: var(--economy-gradient);
@@ -118,6 +130,17 @@
             font-weight: 800;
             margin: 15px 0;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .economy-banner .year-tag {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.25);
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-top: 10px;
+            border: 2px solid rgba(255,255,255,0.5);
         }
         
         /* Main Content */
@@ -257,6 +280,20 @@
             text-align: center;
             margin-bottom: 30px;
             font-size: 1.8rem;
+        }
+        
+        .calc-year-badge {
+            display: block;
+            text-align: center;
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            max-width: 350px;
+            border: 1px solid #ffeaa7;
         }
         
         .economy-calc-item {
@@ -571,9 +608,12 @@
                     <div style="font-size: 1rem; color: var(--secondary-color);">PACS e Laudos</div>
                 </div>
                 <div class="header-text">
-                    <h1>Proposta Comercial</h1>
+                    <h1>Proposta Comercial 2026</h1>
                     <h2>Hospital Regional de Monte Negro</h2>
                     <p>Migração do PACS Animati para PACS SPData</p>
+                    <div class="header-badge">
+                        <i class="fas fa-calendar-check"></i> VALORES ATUALIZADOS PARA 2026
+                    </div>
                 </div>
                 <div class="logo">
                     <!-- Logotipo fictício Hospital -->
@@ -588,6 +628,9 @@
                     <div class="value">R$ 3.450,00</div>
                     <p>ECONOMIA MENSAL APÓS QUITAÇÃO DA TAXA (A PARTIR DE FEV/2028)</p>
                     <p><i class="fas fa-arrow-down"></i> Redução de 53,5% nos custos com PACS</p>
+                    <div class="year-tag">
+                        <i class="fas fa-tag"></i> Valores de 2026
+                    </div>
                 </div>
             </div>
         </div>
@@ -599,6 +642,9 @@
             
             <div class="economy-calculator">
                 <h3><i class="fas fa-calculator"></i> Calculadora de Economia</h3>
+                <div class="calc-year-badge">
+                    <i class="fas fa-calendar-alt"></i> Valores atualizados para 2026
+                </div>
                 
                 <div class="economy-calc-item">
                     <span>Custo mensal atual (PACS Animati):</span>
@@ -647,6 +693,9 @@
                 
                 <p style="margin-top: 20px; font-size: 0.9rem; text-align: center; color: #666;">
                     * Valor que seria gasto com o PACS Animati no período de implantação
+                </p>
+                <p style="margin-top: 10px; font-size: 0.85rem; text-align: center; color: #999; font-style: italic;">
+                    Valores de referência para 2026, sujeitos a reajuste anual pelo IGPM.
                 </p>
             </div>
             
@@ -870,6 +919,9 @@
                     <i class="fas fa-calendar"></i> Validade desta proposta: 26/12/2025 | 
                     <i class="fas fa-clock"></i> Implantação prevista: Novembro/2025
                 </p>
+                <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.9;">
+                    <i class="fas fa-tag"></i> Valores de referência para 2026
+                </p>
             </div>
         </section>
     </main>
@@ -895,11 +947,14 @@
             </div>
             
             <div style="margin-top: 30px; padding: 20px; background-color: rgba(255,255,255,0.1); border-radius: 5px; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <p><strong>Resumo da Oportunidade:</strong> Substituição do PACS Animati (R$ 6.450,00/mês) pelo PACS SPData (R$ 3.000,00/mês) com integração total ao PEP para 9 equipamentos (2 RX, 1 Tomo, 4 US, 1 Endoscopia, 1 Mamo), resultando em economia mensal de R$ 3.450,00 (53,5%) após quitação da taxa de implantação de R$ 32.520,00 parcelada em 24x de R$ 1.355,00. Durante o parcelamento, a economia é de R$ 2.095,00/mês (32,5%). Sem custos durante a implantação (nov/2025 a jan/2026).</p>
+                <p><strong>Resumo da Oportunidade:</strong> Substituição do PACS Animati (R$ 6.450,00/mês) pelo PACS SPData (R$ 3.000,00/mês) com integração total ao PEP para 9 equipamentos (2 RX, 1 Tomo, 4 US, 1 Endoscopia, 1 Mamo), resultando em economia mensal de R$ 3.450,00 (53,5%) após quitação da taxa de implantação de R$ 32.520,00 parcelada em 24x de R$ 1.355,00. Durante o parcelamento, a economia é de R$ 2.095,00/mês (32,5%). Sem custos durante a implantação (nov/2025 a jan/2026). Valores de referência para 2026.</p>
             </div>
             
             <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
-                Proposta elaborada exclusivamente para o Hospital Regional de Monte Negro - Dezembro/2025
+                Proposta elaborada exclusivamente para o Hospital Regional de Monte Negro - Dezembro/2025<br>
+                <span style="display: inline-block; margin-top: 10px; padding: 5px 15px; background-color: rgba(255,255,255,0.15); border-radius: 50px; font-size: 0.85rem;">
+                    <i class="fas fa-tag"></i> Valores atualizados para 2026
+                </span>
             </p>
         </div>
     </footer>
